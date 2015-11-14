@@ -13,7 +13,7 @@ The problem already covered by Frederick Brooks in his book The Mythical Man Mon
 
 LaTeX projects are no different, and they suffer from the same amount of size and complexity growth giving us a big 
 pain when it comes to redesigning or making changes down the line. So when I set out nearly two years ago to build a 
-system that would convert my LaTeX notes onto a beautiful document, a website with ads, and latter an ebook, things 
+system that would convert my LaTeX notes onto a beautiful document, a website with ads, and scale to an ebook, things 
 eventually got out of hand.
 
 ## Scaling
