@@ -1,0 +1,57 @@
+\NewConfigure{NavSection}{4}
+
+\newbool{tocnoempty}
+
+\newcount\navpoint
+\def\stepnavpoint{\advance\navpoint by1\relax\the\navpoint}
+
+% Commands for support of hiearchical table of contents
+% Support for: chapter, section, subsection
+\def\resettoclevels#1{%
+\def\do##1{\csgdef{nav##1finish}{}}
+\docsvlist{#1}
+}
+\def\usetoclevels#1{%
+\def\do##1{\csuse{nav##1finish}}%
+\docsvlist{#1}%
+}
+\def\finishtoclevel#1{%
+\csgdef{nav#1finish}{\d:NavSection}
+}
+\def\closelevels#1{
+\usetoclevels{#1}
+\resettoclevels{#1}
+}
+% 1 - section type 2 - closed sections
+\def\navsection#1#2{
+\ConfigureToc{#1}%
+{\closelevels{#2}%
+\edef\spanclass{#1Toc}%
+\a:NavSection\Ncx:Mark}
+{\c:NavSection}
+{}
+{\b:NavSection%
+\finishtoclevel{#1}%
+}
+}
+\def\Ncx:Mark#1{%
+\edef\:temp{#1}
+\def\z@ro{0}
+\ifx\:temp\z@ro\else#1\fi
+}
+%
+\Configure{tableofcontents}{\HCode{<nav>\Hnewline<ul>}}{%
+\usetoclevels{part,chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}%
+\HCode{</ul></nav>\Hnewline}}{}{}{}
+% We need to configure TocLink
+% Configuraion of entries
+\resettoclevels{part,chapter,section,subsection,subsubsection}
+\navsection{part}{part,chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{chapter}{chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{likechapter}{chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{section}{section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{likesection}{section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{subsection}{subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{likesubsection}{subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{subsubsection}{subsubsection,likesubsubsection}
+\navsection{likesubsubsection}{subsubsection,likesubsubsection}
