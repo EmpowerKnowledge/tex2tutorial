@@ -1,0 +1,10 @@
+% provide configure for \hello command. we can choose any name
+% but most convenient is to name hooks after redefined command
+% we declare two hooks, to be inserted before and after the command
+\NewConfigure{hello}{2}
+% now we need to redefine \hello. save it to tmp command
+\let\tmp:hello\hello
+% note that `:` can be part of command name in `.4ht` files.
+% now insert the hooks. they are named as \a:hook, \b:hook, ..., \h:hook
+% depending on how many hooks were declared
+\renewcommand\hello{\a:hello\tmp:hello\b:hello}
