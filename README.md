@@ -122,3 +122,8 @@ only LaTex file in the `root` folder. The rest of them will be broken down in th
 
     `./build.sh -f helloworld.tex -c helloworld.make4ht.cfg -e helloworld.ebook.cfg  -s studyseries/`
     
+# Separating the styles and the latex
+
+We wont need to have the styles and the LaTeX source in the same folder, since all we need is a symlink, multiple
+projects can be created as long as the symlink in `texmf` exists. 
+
