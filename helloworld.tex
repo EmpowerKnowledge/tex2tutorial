@@ -1,12 +1,42 @@
 \documentclass{article}
-\usepackage[english,czech]{babel}
-\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{hello}
+\usepackage{base/hello/hello}
+\usepackage{base/hierarchictoc}
+\usepackage{base/sections}
+\usepackage{blindtext}
 
 \begin{document}
+\hypertarget{toc}{}
+\tableofcontents
 
-Příliš žluťoučký kůň úpěl \textit{ďábelské} ódy.
+\stchapter{chap:chapter01}{The First Chapter}
+
+\blindtext
+
+\stsection{sec:firstSection}{First Section}{}{}\label{sec:firstSection}
+
+\blindtext
+
+\blindenumerate
+
+\stsubsection{ssec:firstSubSection}{Furst SubSection}{}{}
+\label{ssec:firstSubSection}
+
+\blindtext
+
+\blinditemize
+
+\blindtext
+
+\blinddescription
+
+\stsubsubsection{sssec:example01}{1 sub sub section}{chap:chapter01}{} \label{sssec:example01}
+
+\blindtext
+
+\blindmathpaper
+
 \begin{otherlanguage}{english}
     Some text in English, \hello
 \end{otherlanguage}
