@@ -1,3 +1,13 @@
+## Requirements
+
+The system uses the following:
+
+ 1. `xelatex` for pdf version
+ 2. `make4ht` for web version (and all its dependencies)
+ 3. `tex4ebook` for ebook version (and all its dependencies)
+ 4. `python`, `pip`, `virtualenv env` and `pip install -r requirements.txt` to beautify html
+    - For regression issues I am not using `tidy` on the web version atm
+
 ## Motivation
 
 Through the years I've discovered that the biggest enemy of software is a misplaced sense of optimism in the wrong
@@ -74,20 +84,20 @@ This allows for interesting expansion.
 
 We will break apart the styles between the following: 
 
-    - *base* 
-        - The styles for the PDF distribution
-    - *ebook*
-        - The structure and styles for the ebook
-    - *web*
-        - The structure and styles for the web version
+  - *base* 
+    - The styles for the PDF distribution
+  - *ebook*
+    - The structure and styles for the ebook
+  - *web*
+    - The structure and styles for the web version
 
 ## The Configuration Files
 
 A configuration file is the main file to contain the `styles` for `make4ht` and `tex4ebook`. I named the configuration
 file with a respective line ending for each toolchain:
 
-    - `*.ebook.cfg` for `tex4ebook`
-    - `*.make4ht.cfg` for `make4ht`
+  - `*.ebook.cfg` for `tex4ebook`
+  - `*.make4ht.cfg` for `make4ht`
     
 ### The `make4ht` makefile
 
@@ -98,10 +108,12 @@ file with a respective line ending for each toolchain:
 The `build.sh` file contains the process to assemble the deliverables using the following notation:
 
 ```
-Usage: ./build.sh [-f] file.tex [-c] webConfig.cfg [-e] epubConfig.cfg [-s] studyseries/
+Usage: ./build.sh [-f] file.tex [-w] webConfig.cfg [-e] epubConfig.cfg [-s] studyseries/
         The following options are available:
 
-        -c [REQUIRED]
+        -c
+                cleans the dist directory
+        -w [REQUIRED]
                 Config file for Make4HT
         -f [REQUIRED]
                 TeX main file
@@ -120,7 +132,7 @@ only LaTex file in the `root` folder. The rest of them will be broken down in th
 
 ## Building the distribution
 
-    `./build.sh -f helloworld.tex -c helloworld.make4ht.cfg -e helloworld.ebook.cfg  -s studyseries/`
+    ./build.sh -f helloworld.tex -w helloworld.make4ht.cfg -e helloworld.ebook.cfg  -s studyseries/
     
 # Separating the styles and the latex
 
