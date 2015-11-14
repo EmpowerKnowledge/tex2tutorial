@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 usage(){
-	echo "Usage: $0 [-f] file.tex [-c] webConfig.cfg [-e] epubConfig.cfg [-s] studyseries/"
+	echo "Usage: $0 [-f] file.tex [-w] webConfig.cfg [-e] epubConfig.cfg [-s] studyseries/"
     echo "	The following options are available:"
     echo ""
-    echo "	-c [REQUIRED]"
+    echo "	-c"
+    echo "		cleans the dist directory"
+    echo "	-w [REQUIRED]"
     echo "		Config file for Make4HT"
     echo "	-f [REQUIRED]"
     echo "		TeX main file"
@@ -23,14 +25,13 @@ makeSymlink() {
 }
 
 clean() {
-    rm -fr dist/epub dist/pdf
-    find dist/web/ -not -name package.json -delete
+    rm -fr dist/epub dist/pdf dist/web/*.html dist/web/*.css dist/web/*.png
 }
 
 buildPdf() {
     local fileName=$1
-    xelatex -enable-write18 -synctex=-1 -max-print-line=120 $fileName
-    xelatex -enable-write18 -synctex=-1 -max-print-line=120 $fileName
+    xelatex -enable-write18 -synctex=-1 --interaction=nonstopmode -max-print-line=120 $fileName
+    xelatex -enable-write18 -synctex=-1 --interaction=nonstopmode -max-print-line=120 $fileName
     mkdir -p dist/pdf
     mv helloworld.pdf dist/pdf/${fileName%.*}.pdf
 }
@@ -38,10 +39,11 @@ buildPdf() {
 buildWeb(){
     local fileName=$1; local configFile=$2;
     make4ht -c $configFile -d dist/web/ $fileName
+    ./beautifyHtml.py -f dist/web/${fileName%.*}.html
 }
 
 cleanWeb(){
-    rm -f *.4tc *.4ct *.idv *.lg *.tmp *.xref *.aux *.dvi *.log *.css *.html *.epub *.ncx *.opf
+    rm -f *.4tc *.4ct *.idv *.lg *.tmp *.xref *.aux *.dvi *.log *.css *.html *.epub *.ncx *.opf *.png *.out *.toc
 }
 
 buildEpub() {
@@ -53,7 +55,7 @@ buildEpub() {
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 output_file=""
 
-while getopts "h?f:c:e:s:" opt; do
+while getopts "h?c?f:w:e:s:" opt; do
     case "$opt" in
     h|\?)
         usage
@@ -61,7 +63,11 @@ while getopts "h?f:c:e:s:" opt; do
         ;;
     f)  output_file=$OPTARG
         ;;
-    c)  config_file_web=$OPTARG
+    c|\?)
+        clean
+        exit 0
+        ;;
+    w)  config_file_web=$OPTARG
         ;;
     e)  config_file_epub=$OPTARG
         ;;
@@ -83,7 +89,6 @@ if [[ -z "$output_file" || -z "$config_file_web" || -z "$config_file_epub" || -z
     clean
     buildPdf $output_file
     buildWeb $output_file $config_file_web
-    cleanWeb
     buildEpub $output_file $config_file_epub
     cleanWeb
 fi
