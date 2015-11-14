@@ -233,3 +233,5 @@ crashlytics-build.properties
 
 dist/*
 !dist/web/package.json
+
+env
