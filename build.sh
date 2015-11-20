@@ -30,20 +30,20 @@ clean() {
 
 buildPdf() {
     local fileName=$1
-    xelatex -enable-write18 -synctex=-1 --interaction=nonstopmode -max-print-line=120 $fileName
-    xelatex -enable-write18 -synctex=-1 --interaction=nonstopmode -max-print-line=120 $fileName
+    pdflatex -enable-write18 -synctex=-1 --interaction=nonstopmode -max-print-line=120 $fileName
+    pdflatex -enable-write18 -synctex=-1 --interaction=nonstopmode -max-print-line=120 $fileName
     mkdir -p dist/pdf
     mv helloworld.pdf dist/pdf/${fileName%.*}.pdf
 }
 
 buildWeb(){
     local fileName=$1; local configFile=$2;
-    make4ht -c $configFile -d dist/web/ $fileName
-    ./beautifyHtml.py -f dist/web/${fileName%.*}.html
+    make4ht -u -c $configFile -d dist/web/ $fileName
+    #./beautifyHtml.py -f dist/web/${fileName%.*}.html
 }
 
 cleanWeb(){
-    rm -f *.4tc *.4ct *.idv *.lg *.tmp *.xref *.aux *.dvi *.log *.css *.html *.epub *.ncx *.opf *.png *.out *.toc
+    rm -f *.4tc *.4ct *.idv *.lg *.tmp *.xref *.aux *.dvi *.log *.css *.html *.epub *.ncx *.opf *.png *.out *.toc dist/web/*.css
 }
 
 buildEpub() {

@@ -1,0 +1,4 @@
+% Translate \textbf, \textit and \texttt directives into <b>, <em> and <code>
+\Configure{textbf}{\ifvmode\ShowPar\fi\HCode{<b>}}{\HCode{</b>}}
+\Configure{textit}{\ifvmode\ShowPar\fi\HCode{<i>}}{\HCode{</i>}}
+\Configure{texttt}{\ifvmode\ShowPar\fi\HCode{<code>}}{\HCode{</code>}}
