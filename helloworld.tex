@@ -1,12 +1,22 @@
 \documentclass{article}
-\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{base/hello/hello}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+
+\usepackage{base/title/title}
 \usepackage{base/hierarchictoc}
 \usepackage{base/sections}
 \usepackage{blindtext}
 
+\title{Hello World Document}
+\author{Me, Myself, and I}
+\date{\today}
+
 \begin{document}
+\input{./src/titlepage.tex}
+
+\clearpage
 \hypertarget{toc}{}
 \tableofcontents
 
@@ -36,17 +46,5 @@
 \blindtext
 
 \blindmathpaper
-
-\begin{otherlanguage}{english}
-    Some text in English, \hello
-\end{otherlanguage}
-
-\begin{otherlanguage}{english}
-
-    \textit{What will do} \verb|\textit| at the beginning of paragraph?
-
-    And also, what about configuration for \verb|otherlanguage| environment?
-
-\end{otherlanguage}
 
 \end{document}
