@@ -1,0 +1,13 @@
+\ProvidesPackage{web/header}
+\ConfigureEnv{titlepage}
+    {\leavepars\HCode {
+        <paper-toolbar class="medium-tall">\Hnewline}}
+    {\leavepars\HCode {<span class="flex"></span>\Hnewline
+        <paper-icon-button icon="search"></paper-button-icon>\Hnewline
+        </paper-toolbar>\Hnewline
+        <div class="stMainContainer">\Hnewline}} {} {}
+
+\Configure{stTitle}{\HCode{<div class="stTitle">}\NoFonts}{\EndNoFonts\HCode{</div>}}
+
+\Configure{stSubtitle}{\HCode{<div class="stSubtitle">}\NoFonts}{\EndNoFonts\HCode{</div>}}
+\endinput

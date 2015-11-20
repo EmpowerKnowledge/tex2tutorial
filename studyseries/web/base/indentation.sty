@@ -1,0 +1,8 @@
+\ProvidesPackage{web/base/indentation}
+    % Do not set `indent`/`noindent` classes on paragraphs
+    \Configure{HtmlPar}
+    {\EndP\Tg<p>}
+    {\EndP\Tg<p>}
+    {\HCode{</p>\Hnewline}}
+    {\HCode{</p>\Hnewline}}
+\endinput
