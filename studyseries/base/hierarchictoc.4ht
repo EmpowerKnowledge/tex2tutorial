@@ -40,9 +40,12 @@
 \ifx\:temp\z@ro\else#1\fi
 }
 %
-\Configure{tableofcontents}{\HCode{<nav>\Hnewline<ul>}}{%
-\usetoclevels{part,chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}%
-\HCode{</ul></nav>\Hnewline}}{}{}{}
+\Configure{tableofcontents}{
+    \HCode{<div>Table of Contents</div>
+           <div>}
+    }{%
+    \usetoclevels{part,chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}%
+    \HCode{</div>\Hnewline}}{}{}{}
 % We need to configure TocLink
 % Configuraion of entries
 \resettoclevels{part,chapter,section,subsection,subsubsection}
