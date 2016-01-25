@@ -13,3 +13,7 @@
 \NewConfigure{stSubtitle}{2}
 \let\tmp:stSubtitle\stSubtitle
 \renewcommand{\stSubtitle}[1]{\a:stSubtitle\tmp:stSubtitle{#1}\b:stSubtitle}
+
+\NewConfigure{stOptionalSubtitle}{2}
+\let\tmp:stOptionalSubtitle\stOptionalSubtitle
+\renewcommand{\stOptionalSubtitle}[1]{\a:stOptionalSubtitle\tmp:stOptionalSubtitle{#1}\b:stOptionalSubtitle}

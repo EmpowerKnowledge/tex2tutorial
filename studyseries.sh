@@ -33,7 +33,7 @@ buildPdf() {
     pdflatex -enable-write18 -synctex=-1 --interaction=nonstopmode -max-print-line=120 $fileName
     pdflatex -enable-write18 -synctex=-1 --interaction=nonstopmode -max-print-line=120 $fileName
     mkdir -p dist/pdf
-    mv helloworld.pdf dist/pdf/${fileName%.*}.pdf
+    mv *.pdf dist/pdf/${fileName%.*}.pdf
 }
 
 buildWeb(){
@@ -43,7 +43,7 @@ buildWeb(){
 }
 
 cleanWeb(){
-    rm -f *.4tc *.4ct *.idv *.lg *.tmp *.xref *.aux *.dvi *.log *.css *.html *.epub *.ncx *.opf *.png *.out *.toc dist/web/*.css
+    rm -f *.4tc *.4ct *.idv *.lg *.tmp *.xref *.aux *.dvi *.log *.css *.html *.epub *.ncx *.opf *.png *.out *.toc
 }
 
 buildEpub() {

@@ -1,0 +1,41 @@
+\ProvidesPackage{web/code}
+\newcount\lstinputindex
+\def\thelstinputindex{\the\lstinputindex}
+\def\steplstinputindex{\global\advance\lstinputindex by 1\relax}
+\Configure{lstinputlisting}{%
+\ifvmode\IgnorePar\fi\EndP%
+\steplstinputindex%
+\HCode{%
+    <button class="heading"
+        aria-controls="collapse\thelstinputindex"
+        onclick="Code.toggle('\#collapse\thelstinputindex')">View Code</button>\Hnewline}
+    \HCode{\Hnewline%
+    <iron-collapse id="collapse\thelstinputindex"  tabindex="0" opened="{{opened\thelstinputindex}}">\Hnewline
+      <div class="content">
+        <pre class="prettyprint">
+  }}
+{\IgnorePar\HCode{%
+		</pre>
+      </div>\Hnewline
+    </iron-collapse>\Hnewline}
+}{}{}
+
+
+\newcount\lstinputindex
+\ConfigureEnv{lstlisting}{%
+\ifvmode\IgnorePar\fi\EndP%
+\steplstinputindex%
+\HCode{%
+    <button class="heading"
+        aria-controls="collapse\thelstinputindex"
+        onclick="Code.toggle('\#collapse\thelstinputindex')">View Code</button>\Hnewline}
+    \HCode{\Hnewline%
+    <iron-collapse id="collapse\thelstinputindex"  tabindex="0" opened="{{opened\thelstinputindex}}">\Hnewline
+      <div class="content">
+        <pre class="prettyprint">
+  }}
+{\IgnorePar\HCode{%
+		</pre>
+      </div>\Hnewline
+    </iron-collapse>\Hnewline}
+}{arthos}{bathos}

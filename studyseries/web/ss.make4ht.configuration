@@ -1,0 +1,64 @@
+\edef\hash{\string#}
+\Preamble{xhtml,mathml}
+\NoFonts
+\Configure{VERSION}{}
+\Configure{DOCTYPE}{\HCode{<!DOCTYPE html>\Hnewline}}
+\Configure{HTML}{\HCode{<html lang="en">\Hnewline}}{\HCode{\Hnewline</html>}}
+\newcommand\leavepars{\ifvmode\IgnorePar\fi\EndP}
+
+% Base core files
+\usepackage{base/hierarchictoc}
+
+\usepackage{web/studyseries}
+
+
+\begin{document}
+\makeatletter
+\Configure{TITLE+}{\@title}
+\makeatother
+
+\CssFile[./studyseries/web/css/tableofcontents.css, ./studyseries/web/css/code.css]
+\EndCssFile
+
+\makeatletter
+%\let\ifes@LaTeXe\iftrue
+\makeatother
+\Configure{BODY}{\HCode{<body class="fullbleed layout vertical" unresolved>\Hnewline
+    <paper-drawer-panel  drawer-width="256px" id="coreDrawerPanel">\Hnewline
+        <paper-header-panel drawer>\Hnewline
+          <paper-toolbar id="drawerToolbar">\Hnewline
+                             <span class="paper-font-title">Table of Contents</span>\Hnewline
+          </paper-toolbar>\Hnewline
+        </paper-header-panel>\Hnewline
+        <paper-scroll-header-panel main>\Hnewline}}
+    {\HCode{
+                    </iron-pages>\Hnewline
+                    </div>\Hnewline
+            </template>\Hnewline
+        <script>\Hnewline
+            HTMLImports.whenReady(function() {\Hnewline
+                Polymer({\Hnewline
+                    is: 'study-series-content',\Hnewline
+                    properties: {\Hnewline
+                    selected: {\Hnewline
+                    type: Number,\Hnewline
+                    value: 0\Hnewline
+                }\Hnewline
+              }\Hnewline
+            });\Hnewline
+         });\Hnewline
+      </script>\Hnewline
+    </dom-module>\Hnewline
+                <study-series-content></study-series-content>\Hnewline
+                </div>\Hnewline
+                <meta itemprop="image" content="http://res.cloudinary.com/www-claudiordgz-com/image/upload/v1393991647/LogoClaudio_320x247_sqrb6r.png" />\Hnewline
+                <meta itemprop="articleBody" content="Learning an awesome book one chapter of at a time" />\Hnewline
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person">\Hnewline
+                <meta itemprop="name" content="Claudio Rodriguez"/></span>\Hnewline
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>\Hnewline
+                <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>\Hnewline
+            </paper-scroll-header-panel>\Hnewline
+        </paper-drawer-panel>\Hnewline
+    </body>}
+    }
+\EndPreamble

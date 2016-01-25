@@ -1,0 +1,8 @@
+.likechapterHead{display: none;}
+.sectionToc{display: none;}
+.subsectionToc{display: none;}
+.subsubsectionToc{display: none;}
+#scrollableTabs {height: 100%;}
+.chapterToc + a {display: none;}
+.chapterToc {text-transform: uppercase;}
+.likesectionHead{display:none;}

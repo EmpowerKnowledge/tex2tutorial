@@ -1,16 +1,24 @@
 \ProvidesPackage{web/head}
 % Setup custom <head> content
-\Configure{@HEAD}{}
 \Configure{@HEAD}{\HCode{<meta charset="UTF-8" />\Hnewline}}
 \Configure{@HEAD}{\HCode{<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/\string~gurari/TeX4ht/)" />\Hnewline}}
 % Tweak default style a little bit
 \Configure{@HEAD}{\HCode{<script src="./assets/vendor/webcomponentsjs/webcomponents-lite.min.js"></script>\Hnewline}}
+\Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/paper-scroll-header-panel/paper-scroll-header-panel.html"/>\Hnewline}}
 \Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/paper-header-panel/paper-header-panel.html"/>\Hnewline}}
+\Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/iron-collapse/iron-collapse.html"/>\Hnewline}}
 \Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/paper-toolbar/paper-toolbar.html"/>\Hnewline}}
 \Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/paper-icon-button/paper-icon-button.html"/>\Hnewline}}
+\Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/paper-tabs/paper-tabs.html"/>\Hnewline}}
+\Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/paper-tabs/paper-tab.html"/>\Hnewline}}
+\Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/paper-drawer-panel/paper-drawer-panel.html">\Hnewline}}
+
 \Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/iron-icons/iron-icons.html"/>\Hnewline}}
 \Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/iron-flex-layout/iron-flex-layout.html"/>\Hnewline}}
-\Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/font-roboto/roboto.html"/>\Hnewline}}
-\Configure{@HEAD}{\HCode{<style>body {font-family: Roboto, 'Noto', 'Helvetica Neue',Helvetica, Arial, sans-serif;} .MathJax_MathML {text-indent: 0;}</style>\Hnewline}}
+\Configure{@HEAD}{\HCode{<link rel="import" href="./assets/vendor/iron-pages/iron-pages.html"/>\Hnewline}}
+
 \Configure{@HEAD}{\HCode{<link href="./assets/css/bundle.min.css" rel="stylesheet" type="text/css"/>\Hnewline}}
+
+\Configure{@HEAD}{\HCode{<script type="text/javascript" src="./assets/js/bundle.js"></script>\Hnewline}}
+
 \endinput

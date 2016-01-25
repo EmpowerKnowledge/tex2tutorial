@@ -1,13 +1,21 @@
 \ProvidesPackage{web/header}
 \ConfigureEnv{titlepage}
-    {\leavepars\HCode {
-        <paper-toolbar class="medium-tall">\Hnewline}}
-    {\leavepars\HCode {<span class="flex"></span>\Hnewline
-        <paper-icon-button icon="search"></paper-button-icon>\Hnewline
-        </paper-toolbar>\Hnewline
-        <div class="stMainContainer">\Hnewline}} {} {}
+    {\HCode {
+        <paper-toolbar class="medium-tall">\Hnewline
+            <paper-icon-button icon="menu"></paper-icon-button>\Hnewline}}
+    {
+        \HCode {
+        <paper-icon-button icon="search"></paper-icon-button>\Hnewline
+        </paper-toolbar><div class="chapterContent" style="height:100\%;">}
+        } {} {}
 
-\Configure{stTitle}{\HCode{<div class="stTitle">}\NoFonts}{\EndNoFonts\HCode{</div>}}
+\Configure{stTitle}{\HCode{<span class="top title st--title">}\NoFonts}{\EndNoFonts\HCode{</span>\Hnewline<span class="flex"></span>\Hnewline}}
 
-\Configure{stSubtitle}{\HCode{<div class="stSubtitle">}\NoFonts}{\EndNoFonts\HCode{</div>}}
+\Configure{stSubtitle}{\HCode{<span class="top title st--subtitle">}\NoFonts}{\EndNoFonts\HCode{</span>}}
+
+\Configure{stOptionalSubtitle}
+    {\HCode{<span class="bottom title st--author">\@author</span>\Hnewline
+        <span class="flex"></span>\Hnewline
+        <span class="bottom title st--optional-subtitle">}\NoFonts}
+    {\EndNoFonts\HCode{</span>}}
 \endinput

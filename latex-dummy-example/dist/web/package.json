@@ -1,0 +1,37 @@
+{
+  "name": "study-series--theme__base",
+  "version": "0.0.1",
+  "description": "SASS and JS library for the Base Theme of the Study Series",
+  "url": "https://github.com/EmpowerKnowledge/tex2tutorial",
+  "author": {
+    "name": "claudiordgz",
+    "email": "claudio.rdgz@gmail.com",
+    "url": "http://www.claudiordgz.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EmpowerKnowledge/tex2tutorial"
+  },
+  "devDependencies": {
+    "clean-css": "^3.3.6",
+    "exports-loader": "^0.6.2",
+    "modularscale-sass": "^2.1.1",
+    "node-bourbon": "^4.2.3",
+    "node-sass": "^3.2.0",
+    "webpack": "^1.12.11"
+  },
+  "scripts": {
+    "clean:css": "rm -f assets/css/bundle*",
+    "build:css": "node-sass --include-path=node_modules/modularscale-sass/stylesheets --include-path=node_modules/node-bourbon/node_modules/bourbon/app/assets/stylesheets src/scss/main.scss assets/css/bundle.min.css",
+    "minify:css": "cleancss -o assets/css/bundle.min.css assets/css/bundle.min.css",
+    "deploy:css": "npm run clean:css && npm run build:css && npm run minify:css",
+    "deploy:css:debug": "npm run clean:css && npm run build:css",
+    "postinstall": "bower install -p",
+    "prestart": "bower install"
+  },
+  "config": {
+    "bower_directory": "assets/vendor"
+  },
+  "license": "AGPL-3.0",
+  "readme": "README.md"
+}

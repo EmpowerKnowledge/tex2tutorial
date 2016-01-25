@@ -3,7 +3,7 @@
 \RequirePackage{tabularx}
 \RequirePackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \RequirePackage{hyperref}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{4}
 
 \definecolor{specblue}{RGB}{29, 149, 60}
 \definecolor{lightblue}{RGB}{198, 217, 241}
@@ -23,21 +23,20 @@
 \makeatother
 
 \newcommand{\stchapter}[2]{%
-    \stTarget{#1}\chapter{#2}
+    \chapter{#2}\stTarget{#1}
     \vspace{0.5cm}
 }
 \newcommand{\stsection}[4]{%
-    \stTarget{#1}\section[#2]{#2}
+    \section[#2]{#2}\stTarget{#1}
 	\vspace{0.05cm}
 }
 \newcommand{\stsubsection}[4]{%
-    \stTarget{#1}\subsection[#2]{#2}
+    \subsection[#2]{#2}\stTarget{#1}
 	\vspace{0.05cm}
 }
 \newcommand{\stsubsubsection}[4]{%
-    \stTarget{#1}
     \begin{tabularx}{\textwidth}{Xr}
-        \subsubsection[#2]{\normalsize \textbf{#2}}  & \hyperlink{#3}{\small{Go to Top}} \\
+        \subsubsection[#2]{\normalsize \textbf{#2}}  & \hyperlink{#3}{\small{Go to Top}}\stTarget{#1} \\
     \end{tabularx}
 }
 \endinput

@@ -231,7 +231,9 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
-dist/*
-!dist/web/package.json
+latex-dummy-example/dist/*
+!latex-dummy-example/dist/web/package.json
+!latex-dummy-example/dist/web/bower.json
+!latex-dummy-example/dist/web/webpack.config.js
 
 env

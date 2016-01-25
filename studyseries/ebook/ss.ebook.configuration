@@ -1,6 +1,6 @@
 \Preamble{xhtml}
 \Preamble{xhtml}
-\usepackage{ebook/helloworld}
+\usepackage{ebook/ssmain}
 \CutAt{section}
 \Css{.textit{color:blue;}}
 \Css{.hello{font-weight:bold;}}

@@ -1,0 +1,54 @@
+\ProvidesPackage{web/tableofcontents}
+
+\Configure{tableofcontents}{
+    \IgnorePar
+    \HCode{
+    <dom-module id="study-series-content">\Hnewline
+      <template>\Hnewline
+        <style include="study-series-styles"></style>\Hnewline
+        <paper-toolbar id="tocToolbar">\Hnewline
+        <paper-tabs id="scrollableTabs" class="flex self-end" selected="{{selected}}" scrollable>}
+    }{%
+    \usetoclevels{part,chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}%
+    \HCode{
+        </paper-tabs>\Hnewline
+        </paper-toolbar>\Hnewline
+        <div class="content">\Hnewline
+        <iron-pages selected="{{selected}}">\Hnewline}\ShowPar}{}{}{}
+% We need to configure TocLink
+% Configuraion of entries
+\resettoclevels{part,chapter,section,subsection,subsubsection}
+\navsection{part}{part,chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{chapter}{chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{likechapter}{chapter,likechapter,section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{section}{section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{likesection}{section,likesection,subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{subsection}{subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{likesubsection}{subsection,likesubsection,subsubsection,likesubsubsection}
+\navsection{subsubsection}{subsubsection,likesubsubsection}
+\navsection{likesubsubsection}{subsubsection,likesubsubsection}
+
+
+\Configure{NavSection}
+    {\HCode{\Hnewline<paper-tab><div class="\spanclass">Chapter }}
+    {\HCode{</paper-tab>}}{\HCode{</div>}}{}
+
+\ConfigureToc{section}
+    {}
+    {}
+    {}
+    {}
+
+\ConfigureToc{subsection}
+    {}
+    {}
+    {}
+    {}
+
+\ConfigureToc{subsubsection}
+    {}
+    {}
+    {}
+    {}
+
+\endinput
