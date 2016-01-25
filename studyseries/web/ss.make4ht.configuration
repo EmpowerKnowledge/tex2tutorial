@@ -6,18 +6,14 @@
 \Configure{HTML}{\HCode{<html lang="en">\Hnewline}}{\HCode{\Hnewline</html>}}
 \newcommand\leavepars{\ifvmode\IgnorePar\fi\EndP}
 
-% Base core files
-\usepackage{base/hierarchictoc}
-
-\usepackage{web/studyseries}
-
+\usepackage{web/main}
 
 \begin{document}
 \makeatletter
 \Configure{TITLE+}{\@title}
 \makeatother
 
-\CssFile[./studyseries/web/css/tableofcontents.css, ./studyseries/web/css/code.css]
+\CssFile[css/tableofcontents.css, css/code.css]
 \EndCssFile
 
 \makeatletter

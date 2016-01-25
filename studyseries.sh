@@ -6,14 +6,8 @@ usage(){
     echo ""
     echo "	-c"
     echo "		cleans the dist directory"
-    echo "	-w [REQUIRED]"
-    echo "		Config file for Make4HT"
     echo "	-f [REQUIRED]"
     echo "		TeX main file"
-    echo "	-e [REQUIRED]"
-    echo "		Config file for TeX4Ebook"
-    echo "	-s [REQUIRED]"
-    echo "		Relative Path to Study Series Make4HT Styles"
     echo "	-h"
     echo "		Print this message"
 	exit 1
@@ -55,7 +49,7 @@ buildEpub() {
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 output_file=""
 
-while getopts "h?c?f:w:e:s:" opt; do
+while getopts "h?c?f:" opt; do
     case "$opt" in
     h|\?)
         usage
@@ -67,12 +61,6 @@ while getopts "h?c?f:w:e:s:" opt; do
         clean
         exit 0
         ;;
-    w)  config_file_web=$OPTARG
-        ;;
-    e)  config_file_epub=$OPTARG
-        ;;
-    s)  study_series_folder=$OPTARG
-        ;;
     esac
 done
 
@@ -80,15 +68,15 @@ shift $((OPTIND-1))
 
 [ "$1" = "--" ] && shift
 
-if [[ -z "$output_file" || -z "$config_file_web" || -z "$config_file_epub" || -z "$study_series_folder" ]]
+if [[ -z "$output_file" ]]
   then
     usage
     exit 0
   else
-    makeSymlink $study_series_folder
+#    makeSymlink '../studyseries'
     clean
     buildPdf $output_file
-    buildWeb $output_file $config_file_web
-    buildEpub $output_file $config_file_epub
+    buildWeb $output_file '/home/claudio/texmf/tex/latex/studyseries/web/ss.make4ht.configuration'
+    buildEpub $output_file '/home/claudio/texmf/tex/latex/studyseries/ebook/ss.ebook.configuration'
     cleanWeb
 fi
