@@ -13,7 +13,7 @@
 \Configure{TITLE+}{\@title}
 \makeatother
 
-\CssFile[css/tableofcontents.css, css/code.css]
+\CssFile[css/tableofcontents.css, css/code.css, css/images.css]
 \EndCssFile
 
 \makeatletter

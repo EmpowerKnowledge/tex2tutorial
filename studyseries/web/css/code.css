@@ -1,2 +1,2 @@
-pre span.pln:first-child {  display: none;  }
+pre span.pln:first-child, .listings + span.pln, pre > a + span.pln  {  display: none;  }
 pre.prettyprint, pre.listings {  margin: 0;  }

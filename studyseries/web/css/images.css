@@ -1,0 +1,26 @@
+.ss-image__container {
+    width: 100%;
+}
+
+.ss-image {
+    display:block;
+    margin: auto;
+}
+
+@media screen and (min-width: 1024px){
+    .ss-image {
+        max-width: 75%;
+    }
+}
+
+@media screen and (max-width: 1023px){
+    .ss-image {
+        max-width: 95%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .ss-image {
+        max-width: 98%;
+    }
+}
