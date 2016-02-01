@@ -51,7 +51,7 @@
                 <meta itemprop="articleBody" content="Learning an awesome book one chapter of at a time" />\Hnewline
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">\Hnewline
                 <meta itemprop="name" content="Claudio Rodriguez"/></span>\Hnewline
-                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>\Hnewline
+                <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>\Hnewline
                 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>\Hnewline
             </paper-scroll-header-panel>\Hnewline
         </paper-drawer-panel>\Hnewline
